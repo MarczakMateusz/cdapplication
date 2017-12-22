@@ -52,7 +52,6 @@ public class Cd {
             time = time + "00";
         }
         showTime = prefix+time+sufix;
-        System.out.println(showTime);
     }
 
     private int countTotalTime(){
@@ -95,7 +94,7 @@ class CdBuilder{
         return this;
     }
 
-    public CdBuilder withPerformer(String name){
+    public CdBuilder withPerformer(String performer){
         this.performer = performer;
         return this;
     }

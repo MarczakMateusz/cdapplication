@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CdTest {
@@ -63,5 +64,50 @@ class CdTest {
         assertEquals(cd1.getTrackList().size(),4);
 
     }
+
+    @org.junit.jupiter.api.Test
+    public void methodShouldSaveDateToFile(){
+        Track track1 = new TrackBuilder().
+                withLenght(100).
+                withTitle("ula").
+                withGenre(Genre.POP).
+                withCompositor("ulam").
+                withlyricsAuthor("ha").
+                build();
+
+        Track track2 = new TrackBuilder().
+                withLenght(50).
+                withTitle("title").
+                withGenre(Genre.ROCK).
+                withCompositor("compositor").
+                withlyricsAuthor("lyrics autor").
+                build();
+
+
+        List<Track>trackList = new ArrayList<>();
+        trackList.add(track1);
+        trackList.add(track2);
+
+        Cd cd1 = new CdBuilder().
+                withTrackList(trackList).
+                withPublicationDate(1997).
+                withPerformer("performer").
+                withName("Cd name").
+                build();
+
+        Library library = new Library();
+        library.add(cd1);
+        library.add(cd1);
+        library.save();
+    }
+
+    @org.junit.jupiter.api.Test
+    public void methodShouldLoadDataFromFile(){
+        Library library = new Library();
+        library.load();
+        assertEquals(2, library.getCdList().size());
+    }
+
+
 
 }
