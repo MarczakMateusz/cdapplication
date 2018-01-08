@@ -1,6 +1,6 @@
-package pl.dominisz;
+package pl.dominisz.Api;
 
-enum  Genre {
+public enum  Genre {
     POP("Pop"),
     ROCK("Rock"),
     METAL("Metal"),

@@ -1,6 +1,6 @@
 package pl.dominisz;
 
-import org.junit.Test;
+import pl.dominisz.Api.*;
 
 import java.util.ArrayList;
 import java.util.List;

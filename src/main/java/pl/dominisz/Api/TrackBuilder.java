@@ -1,20 +1,6 @@
-package pl.dominisz;
+package pl.dominisz.Api;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-@Data
-@AllArgsConstructor
-
-public class Track {
-    private String title;
-    private int lenght;
-    private String compositor;
-    private String lyricsAuthor;
-    private Genre genre;
-}
-
-class TrackBuilder{
+public class TrackBuilder{
 
     private String title;
     private int lenght;

@@ -1,6 +1,5 @@
-package pl.dominisz;
+package pl.dominisz.Api;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -24,6 +23,19 @@ public class Cd {
         this.genre = setGenre();
         this.publicationDate = publicationDate;
         this.totalTime = countTotalTime();
+    }
+
+    public String toString() {
+
+        return "Cd{" +
+                "Tytul :'" + name + '\'' +
+                ", Artysta :'" + performer + '\'' +
+                ", Rok wydnania :" + publicationDate + '\n'+
+                "Utwory :" ;
+        //trackList.stream().forEach(Track::toString);
+
+
+
     }
 
     public List<Track> findByGenre(Genre genre){
@@ -52,7 +64,6 @@ public class Cd {
             time = time + "00";
         }
         showTime = prefix+time+sufix;
-        System.out.println(showTime);
     }
 
     private int countTotalTime(){
@@ -64,53 +75,3 @@ public class Cd {
     }
 }
 
-class CdBuilder{
-    private String name;
-    private String performer;
-    private int publicationDate;
-    private List<Track> trackList;
-
-    public CdBuilder() {
-    }
-
-    public CdBuilder withListOfTrack(List<Track>track){
-        if(trackList == null){
-            withTrackList(track);
-        }
-        trackList.addAll(track);
-        return this;
-    }
-
-    public CdBuilder withOneTrack(Track track){
-        if(trackList == null){
-            this.trackList = new ArrayList<>();
-            trackList.add(track);
-        }
-        trackList.add(track);
-        return this;
-    }
-
-    public CdBuilder withName(String name){
-        this.name = name;
-        return this;
-    }
-
-    public CdBuilder withPerformer(String name){
-        this.performer = performer;
-        return this;
-    }
-
-    public CdBuilder withPublicationDate(int year){
-        this.publicationDate = year;
-        return this;
-    }
-
-    public CdBuilder withTrackList(List<Track>trackList){
-        this.trackList = trackList;
-        return this;
-    }
-
-    public Cd build(){
-        return new Cd(name,performer,publicationDate,trackList);
-    }
-}
