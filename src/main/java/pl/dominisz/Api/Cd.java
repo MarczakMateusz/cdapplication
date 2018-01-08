@@ -25,17 +25,26 @@ public class Cd {
         this.totalTime = countTotalTime();
     }
 
+    @Override
     public String toString() {
-
         return "Cd{" +
-                "Tytul :'" + name + '\'' +
+                "Nazwa :'" + name + '\'' +
                 ", Artysta :'" + performer + '\'' +
-                ", Rok wydnania :" + publicationDate + '\n'+
-                "Utwory :" ;
-        //trackList.stream().forEach(Track::toString);
+                ", Data Wydania :" + publicationDate +
+                '}';
+    }
 
-
-
+    public String toStringExtended() {
+        String tracks = "Utwory :";
+        for (Track t: trackList) {
+            tracks = tracks + t.toString();
+        }
+        return "Cd{" +
+                "name='" + name + '\'' +
+                ", performer='" + performer + '\'' +
+                ", genre=" + genre +
+                ", publicationDate=" + publicationDate + '\n' +
+                tracks + '}';
     }
 
     public List<Track> findByGenre(Genre genre){

@@ -15,13 +15,12 @@ public class Track {
 
     @Override
     public String toString() {
-        return "Track{" +
-                "title='" + title + '\'' +
-                ", lenght=" + lenght +
-                ", compositor='" + compositor + '\'' +
-                ", lyricsAuthor='" + lyricsAuthor + '\'' +
-                ", genre=" + genre.getDescription() +
-                '}';
+        return
+                "Tytul : '" + title + '\'' +
+                ", Długosc : " + lenght +
+                ", Kompozytor : " + compositor + '\'' +
+                ", Autor Tekstu : " + lyricsAuthor + '\'' +
+                ", Gatunek : " + genre.getDescription();
     }
 }
 

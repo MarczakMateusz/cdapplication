@@ -1,5 +1,6 @@
 package pl.dominisz;
 
+import pl.dominisz.Api.Cd;
 import pl.dominisz.Api.Library;
 import pl.dominisz.Menu.Menu;
 
@@ -52,7 +53,10 @@ public class App {
         for(int i = 0;i<cdList.size();i++){
             System.out.println((i+1) + "." + cdList.get(i));
         }
-        System.out.println("");
+        System.out.println("Podaj numer plyty ktora chcesz zobaczyc");
+        int cdOption = readInt(cdList.size())-1;
+        System.out.println(library.getCdList().get(cdOption).toStringExtended());
+
     }
 
     private void deleteCd() {
@@ -74,6 +78,7 @@ public class App {
             System.out.println("");
             int option = readInt(mainMenu.size());
             mainMenu.runAction(option);
+            again = false;
 
             }
 
